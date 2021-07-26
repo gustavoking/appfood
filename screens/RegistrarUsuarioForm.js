@@ -1,14 +1,21 @@
 import { View, Text, StyleSheet } from "react-native";
 import React, { useState } from "react";
 import firebase from "../components/firebase";
+
 import { TextInput, Button } from "react-native-paper";
+
 import Icon from "react-native-vector-icons/FontAwesome";
 
 export default function RegistrarUsuarioForm({ navigation }) {
+
   const [email, setEmail] = useState("");
+
   const [pass, setPass] = useState("");
+
   const [nome1, setNome1] = useState("");
+
   const [telefone, setTelefone] = useState("");
+
 
   function createAccount() {
     if (pass !== "" && nome1 !== "" && email !== "" && telefone !== "") {
@@ -17,28 +24,24 @@ export default function RegistrarUsuarioForm({ navigation }) {
         .createUserWithEmailAndPassword(email, pass)
         .then(async (userCredential) => {
           await firebase
-            .database()
-            .ref("cliente")
-            .child(userCredential.user.uid)
-            .push({
-              email: email,
-              telefone: telefone,
-              nome: nome1,
+            .database().ref("cliente").push({
+        uid: userCredential.user.uid,
+        email: email,
+        telefone: telefone,
+        nome: nome1,
+        saldo: 1000,
             })
             .then(() => {
               var userCredencial = {
-                email: email,
-                uid: userCredential.user.uid,
-                nome: nome1,
+        email: email,
+        uid: userCredential.user.uid,
+        nome: nome1,
+        telefone: telefone,
+        saldo: 1000,
               };
-              navigation.navigate("InícioScreens", {
-                userCredencial,
-              });
-            });
-        });
-    } else {
-      alert("Não foi possivel cadastrar");
-    }
+              navigation.navigate("InicioScreens", {userCredencial});});});
+    } 
+    
   }
 
   return (
@@ -46,7 +49,7 @@ export default function RegistrarUsuarioForm({ navigation }) {
       <TextInput
         mode="outlined"
         style={styles.textoDeEntrada}
-        label=" Name"
+        label=" Full Name"
         onChangeText={(text) => setNome1(text)}
       />
       <TextInput
