@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { View, StyleSheet, Text, Image } from 'react-native';
+import { View, StyleSheet, Text, Image, TouchableHighlight } from 'react-native';
 import firebase from '../components/firebase';
 
 export default function ModeloDaListaPedidos({ data }) {
@@ -23,7 +23,9 @@ export default function ModeloDaListaPedidos({ data }) {
     
       }, []);
     return (
+        
         <View style={styles.container}>
+            <TouchableHighlight onPress={() => alert('')}>
             <View style={styles.imagemView}>
                  <Image
                     source={{uri: url}}
@@ -31,25 +33,27 @@ export default function ModeloDaListaPedidos({ data }) {
                 /> 
             </View>
             <View style={styles.textosView}>
-                <Text style={{ color: '#FFF' }}>
+                <Text style={{ color: '#000' }}>
                     <Text style={styles.textoNegrito}>
                         Nome:{' '}
                     </Text>
                     {data.nome}
                 </Text>
-                <Text style={{ color: '#FFF' }}>
+                <Text style={{ color: '#000' }}>
                     <Text style={styles.textoNegrito}>
                         Preço:{' '}
                     </Text>
                     {data.preco}
                 </Text>
-                <Text style={{ color: '#FFF' }}>
+                <Text style={{ color: '#000' }}>
                     <Text style={styles.textoNegrito}>
                         Tipo da Comida:{' '}
                     </Text>
                     {data.tipoComida}
                 </Text>
             </View>
+        </TouchableHighlight>
+
         </View>
     );
 }
@@ -72,13 +76,13 @@ const styles = StyleSheet.create({
         marginLeft: 10,
     },
     textoNegrito: {
-        color: '#9ECEC5',
+        color: 'black',
         fontWeight: 'bold',
     },
     imagem: {
         backgroundColor: 'white',
-        width: 70,
-        height: 70,
+        width: 120,
+        height: 120,
         resizeMode: "stretch"
     }
 });
