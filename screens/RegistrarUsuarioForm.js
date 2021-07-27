@@ -24,7 +24,7 @@ export default function RegistrarUsuarioForm({ navigation }) {
         .createUserWithEmailAndPassword(email, pass)
         .then(async (userCredential) => {
           await firebase
-            .database().ref("cliente").push({
+            .database().ref("cliente").child(userCredential.user.uid).set({
         uid: userCredential.user.uid,
         email: email,
         telefone: telefone,

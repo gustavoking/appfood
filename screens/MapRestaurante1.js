@@ -8,20 +8,17 @@ export default function MapRestaurante1() {
     <View style={styles.container}>
       <MapView
         initialRegion={{
-          latitude: -26.87694,
-          longitude: -52.4041,
+          latitude: -26.872006,
+          longitude: -52.4109088,
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0431,
         }}
         showsUserLocation={true}
         style={styles.map}
       >
-        <Marker
-          title={"INTENSE ACADEMIA 2"}
-          coordinate={{ latitude: -26.87543, longitude: -52.399471 }}
-        >
-          <View style={{ backgroundColor: "red", padding: 2 }}>
-            <Text>INTENSE ACADEMIA 2</Text>
+        <Marker title={"Xis do Neca"} coordinate={{ latitude: -26.872006, longitude: -52.4109088 }}>
+          <View style={{ backgroundColor: "green" }}>
+            <Text>Xis Do Neca</Text>
           </View>
         </Marker>
       </MapView>
