@@ -22,6 +22,8 @@ import Profile from "./screens/Profile";
 
 import AdicionarComida from "./screens/AdicionarComida";
 
+import FazerPedido from "./screens/FazerPedido";
+
 
 const Stack = createStackNavigator();
 
@@ -38,6 +40,7 @@ export default function App() {
         <Stack.Screen name="MapRestaurante3" component={MapRestaurante3}/>
         <Stack.Screen name="Profile" component={Profile}/>
         <Stack.Screen name="AdicionarComida" component={AdicionarComida}/>
+        <Stack.Screen name="FazerPedido" component={FazerPedido}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

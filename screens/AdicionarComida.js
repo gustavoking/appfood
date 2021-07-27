@@ -16,8 +16,27 @@ export default function AdicionarComida({ route }) {
   const [image, setImage] = useState(null);
 
   function adicionarComidaa(){
-    
-  }
+    if (nome != "" && preco != "" && tipoComida != "" && image !== null) {
+      let listagem = firebase.database().ref("listagemComidas");
+      listagem.child(listagem.push().key)
+        .set({
+          nome: nome,
+          preco: preco,
+          tipoComida: tipoComida,
+          image: nome + '_' + userCredencial.uid,
+        })
+        .then(() => {
+          setNome("");
+          setPreco("")
+          setTipoComida("")
+          setImage(null)
+        
+        });
+    } else {
+      alert("Incomplete!!!");
+    }
+  };
+  
 
   async function chooseImage() {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -28,14 +47,16 @@ export default function AdicionarComida({ route }) {
   });
 
     if(!result.cancelled) {
+      if(nome !== ''){
       setImage(result.uri);
-      uploadImage(result.uri, userCredencial.uid)
+      uploadImage(result.uri, nome + '_' + userCredencial.uid)
       .then(() => {
         alert('sucesso na imagem')
       })
       .catch((error) => {
         alert(error)
       })
+    }
     }
   }
 
