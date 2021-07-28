@@ -1,10 +1,13 @@
 import React, {useEffect, useState} from 'react';
+import { useNavigation } from '@react-navigation/native'
 import { View, StyleSheet, Text, Image, TouchableHighlight } from 'react-native';
 import firebase from '../components/firebase';
 
-export default function ModeloDaListaPedidos({ data }) {
+export default function ModeloDaListaPedidos({ data, userCredencial }) {
+
 
     const [url, setUrl] = useState(null)
+    const navegar = useNavigation();
 
     useEffect(()=> {
         async function load(){
@@ -12,7 +15,6 @@ export default function ModeloDaListaPedidos({ data }) {
           try{
             let response = await firebase.storage().ref('images').child(child).getDownloadURL();
             setUrl(response);
-            console.log('response', response)
           }catch(err){
             console.log('ERROR, Nenhuma foto foi encontrada.');
           }
@@ -23,9 +25,10 @@ export default function ModeloDaListaPedidos({ data }) {
     
       }, []);
     return (
-        
+        <TouchableHighlight onPress={() => navegar.navigate('PedirComida', 
+        {data: data, url: url, userCredencial: userCredencial})}>
         <View style={styles.container}>
-            <TouchableHighlight onPress={() => alert('')}>
+           
             <View style={styles.imagemView}>
                  <Image
                     source={{uri: url}}
@@ -52,9 +55,8 @@ export default function ModeloDaListaPedidos({ data }) {
                     {data.tipoComida}
                 </Text>
             </View>
-        </TouchableHighlight>
-
         </View>
+        </TouchableHighlight>
     );
 }
 
@@ -73,7 +75,7 @@ const styles = StyleSheet.create({
     },
     textosView: {
         flex: 1,
-        marginLeft: 10,
+        marginLeft: 10
     },
     textoNegrito: {
         color: 'black',
@@ -83,6 +85,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         width: 120,
         height: 120,
-        resizeMode: "stretch"
+        resizeMode: "stretch",
+        
     }
 });

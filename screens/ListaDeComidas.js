@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, ScrollView, StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
+import ModeloDaListaPedidos from './ModeloDaListaPedidos';
 import { TextInput } from 'react-native-paper';
 import firebase from '../components/firebase';
-import ModeloDaListaPedidos from './ModeloDaListaPedidos';
 
-export default function ListaMotorista() {
+export default function ListaDeComidas({route}) {
 
     const [listagens, setListagens] = useState([]);
     const [listagemComFiltro, setListagemComFiltro] = useState([]);
     const [nomefiltro, setNomefiltro] = useState('')
 
-    const filtrando = (text) => {
+    function filtrando(text){
         setListagemComFiltro(
           listagens.filter((item) =>
            {
@@ -56,8 +56,12 @@ export default function ListaMotorista() {
           style={styles.textinput}
           mode="outlined"
           />
-          {nomefiltro ? listagemComFiltro.map((data) => (<ModeloDaListaPedidos data={data} />)) :
-          listagens.map((data) => (<ModeloDaListaPedidos data={data} />))
+          {nomefiltro ? 
+          listagemComFiltro.map((data) => 
+          (<ModeloDaListaPedidos data={data} userCredencial={route.params.userCredencial} />)) 
+                      :
+          listagens.map((data) => 
+          (<ModeloDaListaPedidos data={data} userCredencial={route.params.userCredencial}/>))
           }
         
             

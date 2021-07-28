@@ -22,8 +22,11 @@ import Profile from "./screens/Profile";
 
 import AdicionarComida from "./screens/AdicionarComida";
 
-import FazerPedido from "./screens/FazerPedido";
+import ListaDeComidas from "./screens/ListaDeComidas";
 
+import PedirComida from "./screens/PedirComida";
+
+import ConfirmandoPedido from "./screens/ConfirmandoPedido";
 
 const Stack = createStackNavigator();
 
@@ -40,7 +43,9 @@ export default function App() {
         <Stack.Screen name="MapRestaurante3" component={MapRestaurante3}/>
         <Stack.Screen name="Profile" component={Profile}/>
         <Stack.Screen name="AdicionarComida" component={AdicionarComida}/>
-        <Stack.Screen name="FazerPedido" component={FazerPedido}/>
+        <Stack.Screen name="ListaDeComidas" component={ListaDeComidas}/>
+        <Stack.Screen name="PedirComida" component={PedirComida}/>
+        <Stack.Screen name="ConfirmandoPedido" component={ConfirmandoPedido}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
