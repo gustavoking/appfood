@@ -25,6 +25,7 @@ export default function InicioScreens({ route, navigation }) {
           <Button onPress={() => navigation.navigate('Profile', {userCredencial, inicial3})}style={styles.botão}><Text style={{color: 'red'}}>Perfil</Text></Button>
           <Button onPress={() => navigation.navigate('AdicionarComida', {userCredencial})} style={styles.botão}><Text style={{color: 'red'}}>Adicionar Comida</Text></Button>
           <Button onPress={() => navigation.navigate('ListaDeComidas', {userCredencial})} style={styles.botão}><Text style={{color: 'red'}}>Fazer Pedido</Text></Button>
+          <Button onPress={() => navigation.navigate('ListaDePedidos')} style={styles.botão}><Text style={{color: 'red'}}>Lista de Pedidos</Text></Button>
         </ScrollView>
 
       <Card style={styles.carde} onPress={() => navigation.navigate('MapRestaurante1')}>

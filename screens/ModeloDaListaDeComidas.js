@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native'
 import { View, StyleSheet, Text, Image, TouchableHighlight } from 'react-native';
 import firebase from '../components/firebase';
 
-export default function ModeloDaListaPedidos({ data, userCredencial }) {
+export default function ModeloDaListaDeComidas({ data, userCredencial }) {
 
 
     const [url, setUrl] = useState(null)

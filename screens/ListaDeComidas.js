@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
-import ModeloDaListaPedidos from './ModeloDaListaPedidos';
+import ModeloDaListaDeComidas from './ModeloDaListaDeComidas';
 import { TextInput } from 'react-native-paper';
 import firebase from '../components/firebase';
 
@@ -21,8 +21,8 @@ export default function ListaDeComidas({route}) {
       }
 
     useEffect(() => {
-        async function carregandoPedidos() {
-            await firebase.database().ref('listagemComidas')
+         function carregandoPedidos() {
+             firebase.database().ref('listagemComidas')
             .on('value', (snapshot) => {
 
 
@@ -58,10 +58,10 @@ export default function ListaDeComidas({route}) {
           />
           {nomefiltro ? 
           listagemComFiltro.map((data) => 
-          (<ModeloDaListaPedidos data={data} userCredencial={route.params.userCredencial} />)) 
+          (<ModeloDaListaDeComidas data={data} userCredencial={route.params.userCredencial} />)) 
                       :
           listagens.map((data) => 
-          (<ModeloDaListaPedidos data={data} userCredencial={route.params.userCredencial}/>))
+          (<ModeloDaListaDeComidas data={data} userCredencial={route.params.userCredencial}/>))
           }
         
             

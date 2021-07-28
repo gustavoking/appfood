@@ -28,6 +28,8 @@ import PedirComida from "./screens/PedirComida";
 
 import ConfirmandoPedido from "./screens/ConfirmandoPedido";
 
+import ListaDePedidos from "./screens/ListaDePedidos";
+
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -46,6 +48,7 @@ export default function App() {
         <Stack.Screen name="ListaDeComidas" component={ListaDeComidas}/>
         <Stack.Screen name="PedirComida" component={PedirComida}/>
         <Stack.Screen name="ConfirmandoPedido" component={ConfirmandoPedido}/>
+        <Stack.Screen name="ListaDePedidos" component={ListaDePedidos}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

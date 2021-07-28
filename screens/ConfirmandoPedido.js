@@ -43,7 +43,7 @@ export default function ConfirmandoPedido({route}) {
     const pedirComida = () => {
         if (tipoPagamento !== '' && rua !== '' && bairro !== ''){
             if(money >= data.preco * qtdItem) {
-                let listagem = firebase.database().ref('ListaPedidos')
+                let listagem = firebase.database().ref('listaPedidos')
 
                 listagem.child(listagem.push().key)
                 .set({
@@ -51,7 +51,8 @@ export default function ConfirmandoPedido({route}) {
                   rua: rua,
                   bairro: bairro,
                   tipoPagamento: tipoPagamento,
-                  preco: data.preco * qtdItem
+                  preco: data.preco * qtdItem,
+                  cliente: userCredencial.nome
                 })
 
                 firebase.database().ref(`cliente/${userCredencial.uid}`).update({
