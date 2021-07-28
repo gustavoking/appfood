@@ -9,9 +9,9 @@ import Icon from "react-native-vector-icons/FontAwesome";
 export default function LoginForm({ navigation }) {
 
 
-  const [email, setEmail] = useState("vavs@outlook.com");
+  const [email, setEmail] = useState("");
 
-  const [pass, setPass] = useState("123456");
+  const [pass, setPass] = useState("");
 
   function loginApp() {
     if (pass !== "" && email !== "") {
