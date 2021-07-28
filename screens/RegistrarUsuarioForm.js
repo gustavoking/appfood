@@ -25,19 +25,19 @@ export default function RegistrarUsuarioForm({ navigation }) {
         .then(async (userCredential) => {
           await firebase
             .database().ref("cliente").child(userCredential.user.uid).set({
-        uid: userCredential.user.uid,
-        email: email,
-        telefone: telefone,
-        nome: nome1,
-        saldo: 1000,
+                uid: userCredential.user.uid,
+                email: email,
+                telefone: telefone,
+                nome: nome1,
+                saldo: 1000,
             })
             .then(() => {
-              var userCredencial = {
-        email: email,
-        uid: userCredential.user.uid,
-        nome: nome1,
-        telefone: telefone,
-        saldo: 1000,
+                    var userCredencial = {
+              email: email,
+              uid: userCredential.user.uid,
+              nome: nome1,
+              telefone: telefone,
+              saldo: 1000,
               };
               navigation.navigate("InicioScreens", {userCredencial});});});
     } 

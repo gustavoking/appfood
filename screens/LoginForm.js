@@ -24,13 +24,14 @@ export default function LoginForm({ navigation }) {
               snapshot.forEach((OK) => {
               if (OK.val().uid === userCredential.user.uid) {
                   var userCredencial = {
-            telefone: OK.val().telefone,
-            nome: OK.val().nome,
-            uid: userCredential.user.uid,
-            email: OK.val().email,
-            saldo: OK.val().saldo,
+                      telefone: OK.val().telefone,
+                      nome: OK.val().nome,
+                      uid: userCredential.user.uid,
+                      email: OK.val().email,
+                      saldo: OK.val().saldo,
                   };
-                  navigation.navigate("InicioScreens", {userCredencial, });}});});});
+                  navigation.navigate("InicioScreens", {userCredencial});}});});});
+                  // navegando e passando parametros do usuario na variavel userCredencial
     }
   }
 

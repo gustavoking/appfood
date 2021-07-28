@@ -25,6 +25,7 @@ export default function ConfirmandoPedido({route}) {
         }
     }
 
+    // funcao para pegar o saldo do usuario
     useEffect(() => {
         firebase.database().ref('cliente')
         .on('value', (snapshot) => {

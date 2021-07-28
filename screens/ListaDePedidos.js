@@ -16,12 +16,12 @@ export default function ListaDePedidos() {
 
                 snapshot.forEach((listaPedidos) => {
                     let pedido = {
-            tipoPagamento: listaPedidos.val().tipoPagamento,
-            rua: listaPedidos.val().rua,
-            bairro: listaPedidos.val().bairro,
-            qtdItem: listaPedidos.val().qtdItem,   
-            preco: listaPedidos.val().preco,   
-            cliente: listaPedidos.val().cliente,   
+                            tipoPagamento: listaPedidos.val().tipoPagamento,
+                            rua: listaPedidos.val().rua,
+                            bairro: listaPedidos.val().bairro,
+                            qtdItem: listaPedidos.val().qtdItem,   
+                            preco: listaPedidos.val().preco,   
+                            cliente: listaPedidos.val().cliente,   
                     };
                     
 

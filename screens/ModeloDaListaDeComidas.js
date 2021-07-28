@@ -6,15 +6,18 @@ import firebase from '../components/firebase';
 export default function ModeloDaListaDeComidas({ data, userCredencial }) {
 
 
-    const [url, setUrl] = useState(null)
+    const [url, setUrl] = useState(null) // constante usada para armazenar foto
     const navegar = useNavigation();
 
     useEffect(()=> {
+    // funcao criada para pegar imagem do banco
+
         async function load(){
             let child = data.image
           try{
             let response = await firebase.storage().ref('images').child(child).getDownloadURL();
             setUrl(response);
+            // setando a uri da foto na constante URL
           }catch(err){
             console.log('ERROR, Nenhuma foto foi encontrada.');
           }

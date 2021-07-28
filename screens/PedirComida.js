@@ -9,8 +9,7 @@ export default function PedirComida({route}) {
 
     const navegar = useNavigation();
 
-
-    const [isEnabled, setIsEnabled] = useState(false);
+    const [isEnabled, setIsEnabled] = useState(false); // variavel criada para mudar o estado do switch
 
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 

@@ -16,6 +16,7 @@ export default function AdicionarComida({ route }) {
   const [image, setImage] = useState(null);
 
   function adicionarComidaa(){
+    // Esse if nao pode deixar nada em branco
     if (nome != "" && preco != "" && tipoComida != "" && image !== null) {
       let listagem = firebase.database().ref("listagemComidas");
       listagem.child(listagem.push().key)

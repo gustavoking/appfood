@@ -10,6 +10,8 @@ export default function ListaDeComidas({route}) {
     const [listagemComFiltro, setListagemComFiltro] = useState([]);
     const [nomefiltro, setNomefiltro] = useState('')
 
+    // funcao para filtrar pelo nome, compara o nome que escreveu no textinput
+    // com o nome da lista
     function filtrando(text){
         setListagemComFiltro(
           listagens.filter((item) =>
@@ -20,6 +22,7 @@ export default function ListaDeComidas({route}) {
         setNomefiltro(text)
       }
 
+     
     useEffect(() => {
          function carregandoPedidos() {
              firebase.database().ref('listagemComidas')
@@ -56,6 +59,7 @@ export default function ListaDeComidas({route}) {
           style={styles.textinput}
           mode="outlined"
           />
+          {/* vai renderizar modelo da lista de comida */}
           {nomefiltro ? 
           listagemComFiltro.map((data) => 
           (<ModeloDaListaDeComidas data={data} userCredencial={route.params.userCredencial} />)) 

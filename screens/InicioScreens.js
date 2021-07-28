@@ -39,7 +39,7 @@ export default function InicioScreens({ route, navigation }) {
       <Image style={styles.imageLanche} source={require('../assets/xbatata.png')}/>
       </Card>
       <Card style={styles.carde} onPress={() => navigation.navigate('MapRestaurante3')}>
-      <Text style={styles.lugar}>Xis Do Neca</Text>
+      <Text style={styles.lugar}>CHOPIXAN XANXERÊ</Text>
         <Text style={styles.localizacao}>CLIQUE AQUI PARA IR PARA A LOCALIZAÇÃO</Text>
       <Image style={styles.imageLanche} source={require('../assets/fritas.png')}/>
       </Card>
